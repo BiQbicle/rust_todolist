@@ -7,23 +7,20 @@ edition = "2021"
 publish = false
 default-run = "todolist-cli"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [workspace.dependencies]
 loco-rs = { version = "0.12.0", default-features = false }
 
 [dependencies]
-
 loco-rs = { workspace = true, features = ["cli"] }
 serde = "1"
 serde_json = "1"
-tokio = { version = "1.33.0", default-features = false, features = [
-  "rt-multi-thread",
-] }
+tokio = { version = "1.33.0", default-features = false, features = ["rt-multi-thread"] }
 async-trait = "0.1.74"
 axum = "0.7.5"
 tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
+dotenvy = "0.15"  # Optional: For environment variable management
+sqlx = { version = "0.7", features = ["sqlite", "runtime-tokio-rustls"] }
 
 [[bin]]
 name = "todolist-cli"
